@@ -2,14 +2,23 @@ package dev.shashank.news
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.*
+import androidx.compose.Composable
+import androidx.compose.getValue
+import androidx.compose.mutableStateOf
+import androidx.compose.setValue
 import androidx.ui.core.Alignment
 import androidx.ui.core.Modifier
 import androidx.ui.core.setContent
 import androidx.ui.foundation.Text
 import androidx.ui.graphics.Color
-import androidx.ui.layout.*
-import androidx.ui.material.*
+import androidx.ui.layout.Column
+import androidx.ui.layout.fillMaxWidth
+import androidx.ui.layout.padding
+import androidx.ui.material.Button
+import androidx.ui.material.Divider
+import androidx.ui.material.MaterialTheme
+import androidx.ui.material.Surface
+import androidx.ui.material.lightColorPalette
 import androidx.ui.tooling.preview.Preview
 import androidx.ui.unit.dp
 
@@ -89,7 +98,6 @@ fun DefaultPreview() {
     }
 }
 
-
 class CounterState(count: Int) {
-    var count by mutableStateOf<Int>(count)
+    var count by mutableStateOf(count)
 }

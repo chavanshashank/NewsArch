@@ -5,6 +5,11 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint") version "9.2.1"
 }
 
+// Read api key credentials
+def credentialFile = rootProject.file("apikey.properties")
+def credentialProperty = new Properties()
+credentialProperty.load(new FileInputStream(credentialFile))
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
@@ -15,6 +20,9 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+
+        //https://guides.codepath.com/android/Storing-Secret-Keys-in-Android
+        buildConfigField("String", "NEWS_API_KEY", credentialProperty['NEWS_API_KEY'])
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -44,16 +52,24 @@ android {
 
 dependencies {
 
+    //compose
     implementation "androidx.compose:compose-runtime:$ui_version"
     implementation "androidx.ui:ui-layout:$ui_version"
     implementation "androidx.ui:ui-material:$ui_version"
     implementation "androidx.ui:ui-tooling:$ui_version"
 
+    // Koin for Android
+    implementation "org.koin:koin-android:$koin_version"
+    // Koin Android Scope feature
+    implementation "org.koin:koin-android-scope:$koin_version"
+    // Koin Android ViewModel feature
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'com.google.android.material:material:1.1.0'
-    
+
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'

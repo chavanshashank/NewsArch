@@ -5,6 +5,9 @@ buildscript {
     //UI
     ext.ui_version = "0.1.0-dev12"
 
+    // Koin
+    ext.koin_version = "2.1.5"
+
     repositories {
         google()
         jcenter()
