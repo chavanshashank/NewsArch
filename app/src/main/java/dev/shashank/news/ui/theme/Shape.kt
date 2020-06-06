@@ -1,4 +1,4 @@
-package dev.shashank.news.ui
+package dev.shashank.news.ui.theme
 
 import androidx.ui.foundation.shape.corner.RoundedCornerShape
 import androidx.ui.material.Shapes
