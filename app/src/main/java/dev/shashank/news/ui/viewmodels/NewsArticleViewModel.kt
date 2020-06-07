@@ -1,11 +1,11 @@
-package dev.shashank.news.viewmodels
+package dev.shashank.news.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
+import dev.shashank.news.data.repository.NewsRepository
 import dev.shashank.news.model.Article
 import dev.shashank.news.model.ViewState
-import dev.shashank.news.repository.NewsRepository
 
 class NewsArticleViewModel(
     newsRepository: NewsRepository

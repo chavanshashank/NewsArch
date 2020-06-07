@@ -1,6 +1,6 @@
 package dev.shashank.news.model
 
-import dev.shashank.news.database.NewsArticle
+import dev.shashank.news.data.database.NewsArticle
 
 data class NewsResponse(
     val articles: List<Article>,
@@ -8,13 +8,13 @@ data class NewsResponse(
     val totalResults: Int
 )
 
-data class Article(
+data class Article( // used as domain as well as network model class, can be separated.
     val author: String?,
     val content: String?,
     val description: String?,
     val publishedAt: String?,
     val title: String?,
-    val url: String,
+    val url: String?,
     val urlToImage: String?
 )
 

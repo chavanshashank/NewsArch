@@ -1,4 +1,4 @@
-package dev.shashank.news.ui.home
+package dev.shashank.news.ui.compose.post
 
 import androidx.compose.Composable
 import androidx.ui.core.Modifier
@@ -19,7 +19,7 @@ import androidx.ui.tooling.preview.Preview
 import androidx.ui.unit.Dp
 import androidx.ui.unit.dp
 import dev.shashank.news.model.Article
-import dev.shashank.news.util.NetworkImageComponentGlide
+import dev.shashank.news.ui.compose.image.NetworkImageComponentGlide
 
 @Composable
 fun PostCardTop(post: Article) {
@@ -55,7 +55,7 @@ fun PostCardTop(post: Article) {
             }
             ProvideEmphasis(emphasisLevels.medium) {
                 Text(
-                    text = "${post.publishedAt} - 2 min read",
+                    text = "${post.publishedAt}",
                     style = typography.body2
                 )
             }
@@ -66,13 +66,11 @@ fun PostCardTop(post: Article) {
 @Preview("Default colors", showDecoration = true)
 @Composable
 fun TutorialPreview() {
-    TutorialPreviewTemplate(darkTheme = true)
+    TutorialPreviewTemplate()
 }
 
 @Composable
-fun TutorialPreviewTemplate(
-    darkTheme: Boolean = false
-) {
+fun TutorialPreviewTemplate() {
     MaterialTheme {
         Surface {
             PostCardTop(

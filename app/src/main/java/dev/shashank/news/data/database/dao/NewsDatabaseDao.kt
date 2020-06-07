@@ -1,8 +1,9 @@
-package dev.shashank.news.database
+package dev.shashank.news.data.database.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import dev.shashank.news.data.database.NewsArticle
 
 @Dao
 interface NewsDatabaseDao {

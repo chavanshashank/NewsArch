@@ -1,8 +1,8 @@
-package dev.shashank.news.repository
+package dev.shashank.news.data.repository
 
-import dev.shashank.news.api.NewsService
-import dev.shashank.news.database.NewsDatabaseDao
-import dev.shashank.news.database.asDomainModel
+import dev.shashank.news.data.api.NewsService
+import dev.shashank.news.data.database.asDomainModel
+import dev.shashank.news.data.database.dao.NewsDatabaseDao
 import dev.shashank.news.model.Article
 import dev.shashank.news.model.ViewState
 import dev.shashank.news.model.asDatabaseModel
@@ -26,7 +26,7 @@ class NewsRepository(
 
             newsDao.insertArticles(newsService.getTopHeadlinesHackerNews().articles.asDatabaseModel())
 
-            emit(ViewState.success(newsDao.getNewsArticles().asDomainModel()))
+            emit(ViewState.success(newsDao.getNewsArticles().asDomainModel())) // stores duplicate if app relaunched.
         }.catch {
 
             emit(ViewState.error(it.message.orEmpty()))

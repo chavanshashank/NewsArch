@@ -1,4 +1,4 @@
-package dev.shashank.news.database
+package dev.shashank.news.data.database
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -26,7 +26,7 @@ data class NewsArticle(
     val title: String?,
 
     @ColumnInfo(name = "url")
-    val url: String,
+    val url: String?,
 
     @ColumnInfo(name = "urlToImage")
     val urlToImage: String?
