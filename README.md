@@ -2,7 +2,7 @@
 Yet another android News App built with Jetpack Compose, Architecture components and Kotlin for Android.
 
 # NewsArch 📰 (Heavy work-in-progress 👷🔧️👷‍♀️⛏)
-So few parts will be missing like Testing and few components, Also, As Jetpack Compose hasn't even entered alpha yet, some parts of the app might be very unstable for now.
+So few parts will be missing like Testing and few components, Also, As Jetpack Compose hasn't even entered alpha yet, some parts of the app might be very unstable for now. Will update more info on coding resources etc later.
 
 ## Built With 🛠
 
