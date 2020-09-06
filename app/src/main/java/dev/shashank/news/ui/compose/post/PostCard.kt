@@ -1,23 +1,23 @@
 package dev.shashank.news.ui.compose.post
 
-import androidx.compose.Composable
-import androidx.ui.core.Modifier
-import androidx.ui.foundation.Text
-import androidx.ui.foundation.shape.corner.RoundedCornerShape
-import androidx.ui.graphics.Color
-import androidx.ui.layout.Column
-import androidx.ui.layout.Spacer
-import androidx.ui.layout.fillMaxWidth
-import androidx.ui.layout.padding
-import androidx.ui.layout.preferredHeight
-import androidx.ui.material.Card
-import androidx.ui.material.EmphasisAmbient
-import androidx.ui.material.MaterialTheme
-import androidx.ui.material.ProvideEmphasis
-import androidx.ui.material.Surface
+import androidx.compose.foundation.Text
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.preferredHeight
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Card
+import androidx.compose.material.EmphasisAmbient
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.ProvideEmphasis
+import androidx.compose.material.Surface
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import androidx.ui.tooling.preview.Preview
-import androidx.ui.unit.Dp
-import androidx.ui.unit.dp
 import dev.shashank.news.model.Article
 import dev.shashank.news.ui.compose.image.NetworkImageComponentGlide
 
@@ -26,9 +26,9 @@ fun PostCardTop(post: Article) {
     val typography = MaterialTheme.typography
 
     Card(
-        shape = RoundedCornerShape(4.dp), color = Color.White,
+        shape = RoundedCornerShape(4.dp), backgroundColor = Color.White,
         modifier = Modifier.fillMaxWidth() + Modifier.padding(4.dp),
-        elevation = Dp(4f)
+        elevation = Dp(5f)
     ) {
         Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
             post.urlToImage?.let { imageUrl ->

@@ -2,23 +2,21 @@ package dev.shashank.news.ui.home
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.Composable
-import androidx.compose.getValue
-import androidx.compose.setValue
+import androidx.compose.foundation.Box
+import androidx.compose.foundation.Text
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.lazy.LazyColumnFor
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Scaffold
+import androidx.compose.material.Surface
+import androidx.compose.material.TopAppBar
+import androidx.compose.material.ripple.RippleIndication
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.setContent
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
-import androidx.ui.core.Modifier
-import androidx.ui.core.setContent
-import androidx.ui.foundation.AdapterList
-import androidx.ui.foundation.Box
-import androidx.ui.foundation.Text
-import androidx.ui.foundation.clickable
-import androidx.ui.material.MaterialTheme
-import androidx.ui.material.Scaffold
-import androidx.ui.material.Surface
-import androidx.ui.material.TopAppBar
-import androidx.ui.material.ripple.ripple
 import androidx.ui.tooling.preview.Preview
 import dev.shashank.news.model.Article
 import dev.shashank.news.model.ViewState
@@ -60,7 +58,7 @@ class MainActivity : AppCompatActivity() {
 @Composable
 fun MyAppTheme(children: @Composable() () -> Unit) {
     MaterialTheme {
-        Scaffold(topAppBar = { TopAppBar(title = { Text("News Arch") }) }) {
+        Scaffold(topBar = { TopAppBar(title = { Text("News Arch") }) }) {
             Surface {
                 children()
             }
@@ -70,11 +68,11 @@ fun MyAppTheme(children: @Composable() () -> Unit) {
 
 @Composable
 fun LiveDataComponentList(articleList: List<Article>) {
-    AdapterList(data = articleList) { article ->
-        Box(Modifier.ripple().clickable(onClick = {}),
-            children = {
-                PostCardTop(post = article)
-            })
+    LazyColumnFor(items = articleList) { article ->
+        Box(
+            children = { PostCardTop(post = article) },
+            modifier = Modifier.clickable(onClick = {}, indication = RippleIndication())
+        )
     }
 }
 
